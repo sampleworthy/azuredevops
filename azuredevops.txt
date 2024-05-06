@@ -1,0 +1,3 @@
+az ad sp create-for-rbac --name "azuredevops" --role contributor \
+                            --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} \
+                            --sdk-auth
