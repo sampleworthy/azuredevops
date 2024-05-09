@@ -9,8 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: azuredevops
-
+    
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
