@@ -24,7 +24,7 @@ jobs:
         az vm create \
             --resource-group demo-x \
             --name myVM \
-            --image UbuntuLTS \
+            --image Ubuntu2204 \
             --admin-username azureuser \
             --admin-password ${{ secrets.ADMIN_PASSWORD }}
 
