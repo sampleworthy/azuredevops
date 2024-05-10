@@ -1,4 +1,5 @@
-name: Check Azure Access
+
+name: Create Azure Resource Group
 
 on:
   workflow_dispatch:
