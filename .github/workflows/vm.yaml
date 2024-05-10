@@ -7,7 +7,7 @@ on:
       - master
 
 jobs:
-  create_vm:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,16 +22,11 @@ jobs:
     - name: Create VM
       run: |
         az vm create \
-          --resource-group demo-x \
-          --name myVM \
-          --image Ubuntu2204 \
-          --admin-username azureuser \
-          --admin-password ${{ secrets.ADMIN_PASSWORD }}
+            --resource-group demo-x \
+            --name myVM \
+            --image Ubuntu2204 \
+            --admin-username azureuser \
+            --admin-password ${{ secrets.ADMIN_PASSWORD }}
 
-  logout_azure:
-    needs: create_vm
-    runs-on: ubuntu-latest
-
-    steps:
     - name: Logout of Azure
       run: az logout
