@@ -1,4 +1,4 @@
-name: Check Azure Access and Deploy VM
+name: Deploy VM
 
 on:
   workflow_dispatch:
@@ -7,7 +7,7 @@ on:
       - master
 
 jobs:
-  build:
+  create-vm:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,9 +24,11 @@ jobs:
         az vm create \
             --resource-group demo-x \
             --name myVM \
-            --image Ubuntu2204 \
+            --image Win2019Datacenter \
             --admin-username azureuser \
-            --admin-password ${{ secrets.ADMIN_PASSWORD }}
+            --admin-password ${{ secrets.ADMIN_PASSWORD }} \
+            --size Standard_D2s_v3 \
+            --nsg-rule RDP
 
     - name: Logout of Azure
       run: az logout
